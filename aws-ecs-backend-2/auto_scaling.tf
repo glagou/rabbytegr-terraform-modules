@@ -90,3 +90,5 @@ resource "aws_cloudwatch_metric_alarm" "service_cpu_low" {
 # TODO: Add memory utilization alarms
 
 # TODO: Add RDS + S3
+
+# TODO: Add ECR and custom image
