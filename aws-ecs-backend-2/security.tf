@@ -1,7 +1,7 @@
-# ALB security Group: Edit to restrict access to the application
+# ALB security Group
 resource "aws_security_group" "lb" {
-  name        = "cb-load-balancer-security-group"
-  description = "controls access to the ALB"
+  name        = "ecs-load-balancer-security-group"
+  description = "Controls access to the ALB"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -21,8 +21,8 @@ resource "aws_security_group" "lb" {
 
 # Traffic to the ECS cluster should only come from the ALB
 resource "aws_security_group" "ecs_tasks" {
-  name        = "cb-ecs-tasks-security-group"
-  description = "allow inbound access from the ALB only"
+  name        = "ecs-tasks-security-group"
+  description = "Allow inbound access from the ALB only"
   vpc_id      = aws_vpc.main.id
 
   ingress {

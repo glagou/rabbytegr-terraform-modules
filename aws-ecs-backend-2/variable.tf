@@ -21,6 +21,18 @@ variable "ecs_auto_scale_role_name" {
   default     = "myEcsAutoScaleRole"
 }
 
+variable "ecs_min_instances" {
+  description = "The minimum number of containers to run"
+  type        = number
+  default     = 1
+}
+
+variable "ecs_max_instances" {
+  description = "The maximum number of containers to run"
+  type        = number
+  default     = 2
+}
+
 variable "fargate_cpu" {
   description = "The Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
   type        = string

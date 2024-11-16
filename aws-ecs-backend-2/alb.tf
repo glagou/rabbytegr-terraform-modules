@@ -9,7 +9,7 @@ resource "aws_lb" "ecs_load_balancer" {
 }
 
 
-// TODO: Change this to be HTTPS
+// TODO: Change this to be HTTPS and port 443 (Add SSL certificate / domain stuff)
 resource "aws_alb_target_group" "ecs_application_tg" {
   name        = "ecs-lb-target-group"
   port        = 80
@@ -29,9 +29,8 @@ resource "aws_alb_target_group" "ecs_application_tg" {
   }
 }
 
-// TODO: I was here
 # Redirect all traffic from the ALB to the target group
-resource "aws_alb_listener" "front_end" {
+resource "aws_alb_listener" "application" {
   load_balancer_arn = aws_lb.ecs_load_balancer.arn
   port              = var.app_port
   protocol          = "HTTP"
